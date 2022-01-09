@@ -5,14 +5,14 @@ import Section from "../Section";
 import GlobalStyle from "../../Style/globalStyles";
 
 export default function App() {
-  const [state, setState] = useState({
+  const [comments, setState] = useState({
     good: 0,
     neutral: 0,
     bad: 0,
   });
 
-  const { good, neutral, bad } = state;
-  const stateKeys = Object.keys(state);
+  const { good, neutral, bad } = comments;
+  const stateKeys = Object.keys(comments);
 
   const setValue = (key) => {
     setState((state) => ({
@@ -26,7 +26,7 @@ export default function App() {
   };
 
   const countTotalFeedback = () => {
-    return Object.values(state).reduce((acc, value) => acc + value, 0);
+    return Object.values(comments).reduce((acc, value) => acc + value, 0);
   };
 
   const positiveFeedbackPercentage = countPositiveFeedbackPercentage();
@@ -42,7 +42,7 @@ export default function App() {
           goodValue={good}
           neutralValue={neutral}
           badValue={bad}
-          state={state}
+          state={comments}
           positivePercentage={positiveFeedbackPercentage}
           total={totalFeedback}
         />
