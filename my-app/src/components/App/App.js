@@ -11,13 +11,12 @@ export default function App() {
     bad: 0,
   });
 
-  let copyOfState = { ...state };
   const { good, neutral, bad } = state;
   const stateKeys = Object.keys(state);
 
   const setValue = (key) => {
     setState((state) => ({
-      ...copyOfState,
+      ...state,
       [key]: state[key] + 1,
     }));
   };
